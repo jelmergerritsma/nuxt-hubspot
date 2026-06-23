@@ -1,7 +1,8 @@
 {
   "name": "nuxt-hubspot",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "HubSpot analytics integration for Nuxt with typesafe event tracking and DevTools panel",
+  "packageManager": "pnpm@11.2.2",
   "license": "MIT",
   "type": "module",
   "repository": {
@@ -44,6 +45,7 @@
     "play:prod": "npm run prepack && nuxi dev playground",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "test": "vitest run",
     "test:watch": "vitest watch"
   },

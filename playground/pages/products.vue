@@ -37,13 +37,19 @@ const handleAdd = (product: typeof products[number]) => {
             {{ product.price === 0 ? 'Free' : `$${product.price}` }}
           </p>
         </div>
-        <button class="btn btn-secondary" @click="handleAdd(product)">
+        <button
+          class="btn btn-secondary"
+          @click="handleAdd(product)"
+        >
           Add to Cart
         </button>
       </div>
     </div>
 
-    <p class="hint" style="margin-top: 12px;">
+    <p
+      class="hint"
+      style="margin-top: 12px;"
+    >
       Each button fires an <code>add_to_cart</code> event
     </p>
   </div>

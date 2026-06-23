@@ -7,7 +7,10 @@ const hubspot = useHubspot()
     <div id="status">
       no-identify
     </div>
-    <button id="track" @click="hubspot.log('test_event', { value: 1 })">
+    <button
+      id="track"
+      @click="hubspot.log('test_event', { value: 1 })"
+    >
       Track
     </button>
   </div>

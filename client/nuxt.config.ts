@@ -1,20 +1,26 @@
 import { resolve } from 'node:path'
 
 export default defineNuxtConfig({
-  ssr: false,
 
   modules: [
     '@nuxt/devtools-ui-kit',
   ],
+  ssr: false,
+
+  devtools: {
+    enabled: false,
+  },
+
+  app: {
+    baseURL: '/__nuxt-hubspot',
+  },
+
+  compatibilityDate: '2024-08-21',
 
   nitro: {
     output: {
       publicDir: resolve(__dirname, '../dist/client'),
     },
-  },
-
-  app: {
-    baseURL: '/__nuxt-hubspot',
   },
 
   vite: {
@@ -25,10 +31,4 @@ export default defineNuxtConfig({
       },
     },
   },
-
-  devtools: {
-    enabled: false,
-  },
-
-  compatibilityDate: '2024-08-21',
 })
