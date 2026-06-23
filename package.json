@@ -2,6 +2,7 @@
   "name": "nuxt-hubspot",
   "version": "0.0.2",
   "description": "HubSpot analytics integration for Nuxt with typesafe event tracking and DevTools panel",
+  "packageManager": "pnpm@11.2.2",
   "license": "MIT",
   "type": "module",
   "repository": {
