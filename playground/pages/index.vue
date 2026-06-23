@@ -34,10 +34,18 @@ const handleSearch = () => {
           User Identity
         </p>
         <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-          <button class="btn btn-primary" :disabled="identified" @click="handleIdentify">
+          <button
+            class="btn btn-primary"
+            :disabled="identified"
+            @click="handleIdentify"
+          >
             Identify User
           </button>
-          <button class="btn btn-danger" :disabled="!identified" @click="handleReset">
+          <button
+            class="btn btn-danger"
+            :disabled="!identified"
+            @click="handleReset"
+          >
             Reset
           </button>
         </div>
@@ -50,7 +58,10 @@ const handleSearch = () => {
         <p class="card-title">
           Custom Events
         </p>
-        <button class="btn btn-secondary" @click="handleSearch">
+        <button
+          class="btn btn-secondary"
+          @click="handleSearch"
+        >
           Search "nuxt modules"
         </button>
         <p class="hint">

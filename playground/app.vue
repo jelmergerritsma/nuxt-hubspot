@@ -8,9 +8,23 @@ const { count } = useCart()
   <div class="app">
     <header>
       <div class="logo">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M17.5 8.5c0-1.38-1.12-2.5-2.5-2.5V4a1 1 0 0 0-2 0v2h-2V4a1 1 0 0 0-2 0v2c-1.38 0-2.5 1.12-2.5 2.5v1c0 1.38 1.12 2.5 2.5 2.5h6c1.38 0 2.5-1.12 2.5-2.5v-1z" fill="#ff7a59" />
-          <circle cx="12" cy="17" r="4" fill="#ff7a59" opacity="0.6" />
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M17.5 8.5c0-1.38-1.12-2.5-2.5-2.5V4a1 1 0 0 0-2 0v2h-2V4a1 1 0 0 0-2 0v2c-1.38 0-2.5 1.12-2.5 2.5v1c0 1.38 1.12 2.5 2.5 2.5h6c1.38 0 2.5-1.12 2.5-2.5v-1z"
+            fill="#ff7a59"
+          />
+          <circle
+            cx="12"
+            cy="17"
+            r="4"
+            fill="#ff7a59"
+            opacity="0.6"
+          />
         </svg>
         <span>nuxt-hubspot</span>
       </div>
@@ -28,7 +42,10 @@ const { count } = useCart()
       </NuxtLink>
       <NuxtLink to="/checkout">
         Checkout
-        <span v-if="count > 0" class="badge">{{ count }}</span>
+        <span
+          v-if="count > 0"
+          class="badge"
+        >{{ count }}</span>
       </NuxtLink>
     </nav>
 
