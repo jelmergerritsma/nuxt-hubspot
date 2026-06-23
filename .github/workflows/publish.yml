@@ -1,0 +1,48 @@
+name: Publish to npm
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+      - run: pnpm install
+      - run: pnpm dev:prepare
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm prepack
+      - name: Check if version changed
+        id: version
+        run: |
+          CURRENT=$(node -p "require('./package.json').version")
+          PUBLISHED=$(npm view nuxt-hubspot version 2>/dev/null || echo "0.0.0")
+          if [ "$CURRENT" != "$PUBLISHED" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Publishing v$CURRENT (npm has v$PUBLISHED)"
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "Skipping publish — v$CURRENT already on npm"
+          fi
+      - name: Publish
+        if: steps.version.outputs.changed == 'true'
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
